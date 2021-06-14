@@ -7,6 +7,7 @@ import { ContaService } from 'src/app/core/services/conta.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ContaRoutingModule } from './conta-routing.module';
 import { ContaCadastrarEditarComponent } from './pages/conta-cadastrar-editar/conta-cadastrar-editar.component';
+import { ContaDepositarComponent } from './pages/conta-depositar/conta-depositar.component';
 import { ContaListarComponent } from './pages/conta-listar/conta-listar.component';
 import { ContaComponent } from './pages/conta.component';
 
@@ -15,6 +16,7 @@ import { ContaComponent } from './pages/conta.component';
     ContaComponent,
     ContaListarComponent,
     ContaCadastrarEditarComponent,
+    ContaDepositarComponent
   ],
   imports: [
     CommonModule,

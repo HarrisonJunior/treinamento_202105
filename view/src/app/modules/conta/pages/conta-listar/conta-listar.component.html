@@ -28,6 +28,9 @@
                 <button type="button" class="btn btn-default btn-sm" title="Excluir" (click)="delete(item.id)">
                   <i class="fas fa-trash"></i>
                 </button>
+                <button type="button" class="btn btn-default btn-sm" title="Depositar" (click)="depositar(item.id, item.agencia, item.numero)">
+                  <i class="pi pi-dollar"></i>
+                </button>
               </td>
             </tr>
           </ng-template>

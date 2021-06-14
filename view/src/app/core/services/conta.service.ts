@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ContaDepositoDTO } from '../dtos/conta-deposito.dto';
 import { ContaDTO } from '../dtos/conta.dto';
 import { ApiService } from './api.service';
 
@@ -30,6 +31,10 @@ export class ContaService {
     }
 
     delete(id: number): Observable<any> {
-        return this.apiService.delete(`${this.controller}/${id}/`);
+      return this.apiService.delete(`${this.controller}/${id}/`);
+    }
+
+    depositar(obj: ContaDepositoDTO): Observable<any> {
+      return this.apiService.post(`${this.controller}/deposito`, obj);
     }
 }

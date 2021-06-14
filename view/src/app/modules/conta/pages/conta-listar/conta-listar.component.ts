@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContaDTO } from 'src/app/core/dtos/conta.dto';
@@ -44,6 +45,11 @@ export class ContaListarComponent implements OnInit {
         });
       }
     });
+  }
+
+
+  depositar(id: number, agencia: string, numero: string) {
+    this.router.navigate(['/conta/depositar'], { queryParams: { agencia:agencia,numero:numero} });
   }
 
 }

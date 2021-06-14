@@ -31,6 +31,7 @@ export class ContaCadastrarEditarComponent extends FormBase implements OnInit {
     this.validateMensageError();
     this.createFormGoup();
     this.isEditPage();
+ 
   }
 
   getParamsScreen() {
