@@ -1,6 +1,7 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrderPipe } from 'ngx-order-pipe';
 import { ContaDTO } from 'src/app/core/dtos/conta.dto';
 import { ContaService } from 'src/app/core/services/conta.service';
 import { SweetalertCustom } from 'src/app/shared/utils/sweetalert-custom';
@@ -12,15 +13,17 @@ import { SweetalertCustom } from 'src/app/shared/utils/sweetalert-custom';
 })
 export class ContaListarComponent implements OnInit {
 
-  contas = new Array<ContaDTO>();
+  @Input() carregarAoIniciar: boolean;
+  @Input() contas = new Array<ContaDTO>();
 
-  constructor(
-    public router: Router,
-    private contaService: ContaService
-  ) {}
+  constructor(public router: Router, private contaService: ContaService, private orderPipe: OrderPipe) {
+    this.carregarAoIniciar = true;
+  }
 
   ngOnInit() {
-    this.getAll();
+    if (this.carregarAoIniciar) {
+      this.getAll();
+    }
   }
 
   getAll() {
@@ -47,9 +50,20 @@ export class ContaListarComponent implements OnInit {
     });
   }
 
-
   depositar(id: number, agencia: string, numero: string) {
     this.router.navigate(['/conta/depositar'], { queryParams: { agencia:agencia,numero:numero} });
+  }
+
+  sacar(id: number, agencia: string, numero: string) {
+    this.router.navigate(['/conta/sacar'], { queryParams: { agencia: agencia, numero: numero } });
+  }
+
+  transferir(id: number, agencia: string, numero: string) {
+    this.router.navigate(['/conta/transferir'], { queryParams: { agencia: agencia, numero: numero } });
+  }
+
+  ordenarPor(campo: string) {
+    this.contas = this.orderPipe.transform(this.contas, campo);
   }
 
 }

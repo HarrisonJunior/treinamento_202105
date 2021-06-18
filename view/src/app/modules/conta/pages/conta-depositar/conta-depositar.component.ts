@@ -6,6 +6,7 @@ import { ContaDepositoDTO } from "../../../../core/dtos/conta-deposito.dto";
 import { ContaService } from "../../../../core/services/conta.service";
 import { SweetalertCustom } from "../../../../shared/utils/sweetalert-custom";
 import { ValidatorsCustom } from "../../../../shared/utils/validators-custom";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-conta-depositar',
@@ -13,8 +14,7 @@ import { ValidatorsCustom } from "../../../../shared/utils/validators-custom";
   styleUrls: ['./conta-depositar.component.scss']
 })
 export class ContaDepositarComponent extends FormBase implements OnInit {
-
-  constructor(private contaService: ContaService, private router: Router, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute,) {
+  constructor(private contaService: ContaService, private router: Router, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute,private location:Location) {
     super();
   }
 
@@ -58,7 +58,8 @@ export class ContaDepositarComponent extends FormBase implements OnInit {
     this.contaService.depositar(entity).subscribe(
       () => {
         SweetalertCustom.showAlertTimer('Operação realizada com sucesso.', { type: 'success' }).then(() => {
-          this.router.navigate(['/conta']);
+        /*this.router.navigate(['/conta']);*/
+          this.location.back();
         });
       }
     );

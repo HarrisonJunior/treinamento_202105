@@ -7,7 +7,7 @@
   <div class="card-body">
     <div class="row">
       <div class="col-12">
-        <app-table-custom [items]="contas" [itemsPerPage]="15">
+        <app-table-custom  [items]="contas" [itemsPerPage]="15">
           <ng-template appTableHeader>
             <tr class="bg-gray-light">
               <th>Agência</th>
@@ -30,6 +30,12 @@
                 </button>
                 <button type="button" class="btn btn-default btn-sm" title="Depositar" (click)="depositar(item.id, item.agencia, item.numero)">
                   <i class="pi pi-dollar"></i>
+                </button>
+                <button type="button" class="btn btn-default btn-sm" title="Sacar" (click)="sacar(item.id, item.agencia, item.numero)">
+                  <i class="pi pi-money-bill"></i>
+                </button>
+                <button type="button" class="btn btn-default btn-sm" title="Transferência" (click)="transferir(item.id, item.agencia, item.numero)">
+                  <i class="pi pi-arrow-right"></i>
                 </button>
               </td>
             </tr>

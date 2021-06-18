@@ -53,6 +53,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     if (severidade == AplicacaoExceptionValidacoes.SEVERIDADE_ALERTA) {
       body.setTipo("alerta");
+     
     }
 
     for (final AplicacaoExceptionValue cve : ex.getCustomExceptionValues()) {

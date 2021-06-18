@@ -27,6 +27,7 @@
     "moment": "^2.24.0",
     "ngx-loading": "^8.0.0",
     "ngx-mask": "^8.1.7",
+    "ngx-order-pipe": "^2.1.1",
     "ngx-pagination": "^5.0.0",
     "ngx-permissions": "^7.0.3",
     "primeicons": "^2.0.0",

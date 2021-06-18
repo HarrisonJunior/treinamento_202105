@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, TemplateRef, AfterContentInit, AfterViewInit, AfterContentChecked } from '@angular/core';
 import { TableHeaderDirective } from './config/table-header.directive';
 import { TableBodyDirective } from './config/table-body.directive';
 import { TableEmptyDirective } from './config/table-empty.directive';
@@ -8,7 +8,7 @@ import { TableEmptyDirective } from './config/table-empty.directive';
   templateUrl: './table-custom.component.html',
   styleUrls: ['./table-custom.component.scss']
 })
-export class TableCustomComponent implements OnInit {
+export class TableCustomComponent {
 
   @Input() items: any[] = [];
   @Input() itemsPerPage = 0;
@@ -21,9 +21,8 @@ export class TableCustomComponent implements OnInit {
 
   pageCurrent = 1;
 
-  constructor() { }
-
-  ngOnInit() { }
+  constructor() {
+  }
 
   setCurrentPage(page) {
     this.pageCurrent = page;

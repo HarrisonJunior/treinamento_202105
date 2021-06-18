@@ -14,7 +14,7 @@
                 <label class="form-required">
                   <small [ngClass]="{'text-red': displayMessage.agencia}">Agência</small>
                 </label>
-                <input type="text" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}" >
+                <input type="text" class="form-control" formControlName="agencia" [ngClass]="{'is-invalid': displayMessage.agencia}" readonly>
                 <small class="form-text text-red" [innerHTML]="displayMessage.agencia"></small>
               </div>
             </div>
@@ -23,7 +23,7 @@
                 <label class="form-required">
                   <small [ngClass]="{'text-red': displayMessage.numeroConta}">Número da Conta</small>
                 </label>
-                <input type="text" class="form-control" formControlName="numeroConta" [ngClass]="{'is-invalid': displayMessage.numeroConta}"  >
+                <input type="text" class="form-control" formControlName="numeroConta" [ngClass]="{'is-invalid': displayMessage.numeroConta}" readonly>
                 <small class="form-text text-red" [innerHTML]="displayMessage.numeroConta"></small>
               </div>
             </div>
@@ -41,18 +41,5 @@
       </div>
     </div>
   </div>
-  <div class="card-footer">
-    <div class="row">
-      <div class="col-12">
-        <button type="submit" class="btn btn-danger btn-sm float-right" [disabled]="form.invalid" (click)="onSubmit()">
-          <i class="fa fa-check"></i>
-          Salvar
-        </button>
-        <a class="btn btn-secondary btn-sm float-right mr-1" [routerLink]="['/conta']">
-          <i class="fa fa-times"></i>
-          Cancelar
-        </a>
-      </div>
-    </div>
-  </div>
+  <app-cancelar-confirmar [isFormularioInvalido]="form.invalid" (submetido)="onSubmit()"></app-cancelar-confirmar>
 </div>

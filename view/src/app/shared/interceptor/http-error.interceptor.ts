@@ -15,8 +15,13 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                     } else {
                         // Este é um erro do lado do servidor.
                         if (httpErrorResponse.error.detalhes) {
-                            SweetalertCustom.showAlertConfirm(httpErrorResponse.error.detalhes[0], { type: 'error' });
-                        } else {
+                          SweetalertCustom.showAlertConfirm(httpErrorResponse.error.detalhes[0], { type: 'error' });
+                        } else if (!httpErrorResponse.error.detalhes && httpErrorResponse.error.message) {
+                          let mensagem = httpErrorResponse.error.message;
+                          mensagem = mensagem.replace('msg.app.alerta.', '');
+                          SweetalertCustom.showAlertConfirm(mensagem, { type: 'error' });
+                        }
+                        else {
                             SweetalertCustom.showAlertConfirm(`Falha na operação.`, { type: 'error' });
                         }
                     }

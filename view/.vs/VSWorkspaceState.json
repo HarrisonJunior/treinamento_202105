@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\core",
-    "\\src\\app\\core\\dtos",
     "\\src\\app\\modules",
     "\\src\\app\\modules\\conta",
+    "\\src\\app\\modules\\conta\\cancelar-confirmar",
     "\\src\\app\\modules\\conta\\pages",
     "\\src\\app\\modules\\conta\\pages\\conta-depositar",
-    "\\src\\app\\shared"
+    "\\src\\app\\shared",
+    "\\src\\app\\shared\\interceptor"
   ],
-  "SelectedNode": "\\src\\app\\modules\\conta\\pages\\conta-depositar",
+  "SelectedNode": "\\src\\app\\modules\\conta\\cancelar-confirmar\\cancelar-confirmar.component.ts",
   "PreviewInSolutionExplorer": false
 }
